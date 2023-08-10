@@ -55,6 +55,10 @@ psql -h localhost -U postgres
 CREATE DATABASE testdb;
 \c testdb
 
+source aws_project/.env
+
 git add -A
 git commit -m 'new production files'
-git push origin aws_project/.env
+git push origin aws_development 
+
+# change DEBUG and ALLOWED_HOSTS in settings.py, add info to .env
