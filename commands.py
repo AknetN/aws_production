@@ -57,3 +57,4 @@ CREATE DATABASE testdb;
 
 git add -A
 git commit -m 'new production files'
+git push origin main
