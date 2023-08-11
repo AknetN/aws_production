@@ -62,3 +62,22 @@ git commit -m 'new production files'
 git push origin aws_development 
 
 # change DEBUG and ALLOWED_HOSTS in settings.py, add info to .env
+
+# work at aws.amazon
+
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install supervisor
+sudo apt-get install -y nginx
+sudo apt-get install python3-
+sudo apt-get install python3-pip
+sudo apt-get install python3-virtualenv
+pip freeze > requirements.txt
+
+git add -A
+git commit -m 'new production files'
+git pull origin main --no-rebase 
+git status 
+git log 
+git push 
