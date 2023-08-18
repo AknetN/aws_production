@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/blogprojectdrf
+EnvironmentFile=/home/ubuntu/projects/test_aws_deploy/.env
+ExecStart=/home/ubuntu/projects/test_aws_deploy/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          backend.wsgi:application
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,52 @@
+1. Install the following Updates
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install -y nginx
+    sudo apt-get install python3-dev
+    sudo apt-get install python3-pip
+    sudo apt-get install python3-virtualenv
+
+2. Clone Your Project into EC2 from Github
+
+3. Cd into Your Project Directory
+
+4. Create a Virtual environment and Install all the necessary libs
+
+5. set up Gunicorn by 
+
+    - cd into /etc/systemd/system/
+    - sudo nano gunicorn.socket and update accordingly
+    - sudo nano gunicorn.service and update accordingly
+    - create a log dir (sudo mkdir /var/log/gunicorn)
+
+6. run the following commands to update system
+
+    - sudo systemctl start gunicorn.socket
+    - sudo systemctl enable gunicorn.socket
+    - sudo systemctl status gunicorn.socket
+    - file /run/gunicorn.sock (if empty, there is a problem)
+    - sudo journalctl -u gunicorn.socket (to check guniron logs)
+    - sudo systemctl status gunicorn
+
+7. set up Nginx by 
+
+    - ls /etc/nginx/sites-enabled to see if any files exists here
+    - sudo rm -rf the file from above
+    - sudo nano nginx.conf and update user to ubuntu
+    - cd into /etc/nginx/sites-available/
+    - sudo nano nginx_app_name and update
+    - sudo ln nginx_app_name /etc/nginx/sites-enabled (to link both entities)
+
+6. run the following commands to update system
+
+    - sudo gpasswd -a www-data ubuntu
+    - sudo ufw delete allow 8000
+    - sudo ufw allow 'Nginx Full'
+    - sudo systemctl restart nginx
+    - sudo service gunicorn restart
+    - sudo service nginx restart
+
+7. to check logs
+
+    - sudo tail -f /var/log/nginx/error.log
+    - sudo systemctl status nginx
