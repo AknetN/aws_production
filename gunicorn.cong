@@ -1,0 +1,11 @@
+[program:gunicorn]
+directory=/home/user/Documents/DCI/2023/August/Production_Folder/aws_production
+environment=SECRET_KEY="django-insecure-9lbv8$*xc$k#!t5smob1xhwhaunl0@iq#p&q5dbwsso-qrr*^9", DEBUG_SETTINGS=true
+command=/home/user/Documents/DCI/2023/August/Production_Folder/aws_production/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/elevate/app.sock aws_project.wsgi.application  
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/gunicorn/gunicorn.err.log
+stdout_logfile=/var/log/gunicorn/gunicorn.out.log
+
+[group:guni]
+programs:gunicorn

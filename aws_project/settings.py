@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
-#SECRET_KEY = "django-insecure-9lbv8$*xc$k#!t5smob1xhwhaunl0@iq#p&q5dbwsso-qrr*^9"
+# SECRET_KEY = "django-insecure-9lbv8$*xc$k#!t5smob1xhwhaunl0@iq#p&q5dbwsso-qrr*^9"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'rest_framework',
-    'drf_spectacular',
+    "rest_framework",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -125,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "collections/static_collection" #
+STATIC_ROOT = "collections/static_collection"  #
 MEDIA_URL = "/media/"
 MEDIA_ROOT = "collections/media"
 
@@ -133,7 +133,9 @@ MEDIA_ROOT = "collections/media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-WHITENOISE_STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+WHITENOISE_STATICFILES_STORAGE = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",

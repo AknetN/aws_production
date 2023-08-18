@@ -34,7 +34,7 @@ MEDIA_ROOT = "collections/media"
 # add if to urls.py
 
 # read about whitenoise python here:https://whitenoise.readthedocs.io/en/stable/
-#do evything from there
+#do everything from there
 
 python3 manage.py runserver
 
@@ -64,6 +64,8 @@ git push origin aws_development
 # change DEBUG and ALLOWED_HOSTS in settings.py, add info to .env
 
 # work at aws.amazon
+# - ec2  ---> budget, instances
+# - iam
 
 
 sudo apt-get update
@@ -76,7 +78,7 @@ sudo apt-get install python3-virtualenv
 pip freeze > requirements.txt
 
 git add -A
-git commit -m 'new production files'
+git commit -m 'after writing a hundred commands'
 git pull origin main --no-rebase 
 git status 
 git log 
