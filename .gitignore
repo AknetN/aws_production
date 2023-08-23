@@ -120,7 +120,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+#.env
+.env_gunicorn
 .venv
 env/
 venv/
@@ -160,3 +161,4 @@ cython_debug/
 #.idea/
 
 *.pem
+collections/
