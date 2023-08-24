@@ -121,6 +121,7 @@ celerybeat.pid
 
 # Environments
 .env_copy
+.env
 .env_gunicorn
 .venv
 env/
