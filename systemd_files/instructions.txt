@@ -30,14 +30,16 @@
 
 7. set up Nginx by 
 
-    - ls /etc/nginx/sites-enabled to see if any files exists here
-    - sudo rm -rf the file from above
+    - cd into /etc/nginx/
     - sudo nano nginx.conf and update user to ubuntu
     - cd into /etc/nginx/sites-available/
-    - sudo nano nginx_app_name and update
-    - sudo ln nginx_app_name /etc/nginx/sites-enabled (to link both entities)
-
-6. run the following commands to update system
+    - sudo nano nginx_app_name and update sudo nano nginx_aws_production
+    - sudo ln -s /etc/nginx/sites-available/nginx_app_name /etc/nginx/sites-enabled (to link both entities)
+    - sudo ln -s /etc/nginx/sites-available/nginx_aws_production /etc/nginx/sites-enabled
+    - sudo nginx -t # to test
+    - sudo systemctl restart nginx
+    
+8. run the following commands to update system
 
     - sudo gpasswd -a www-data ubuntu
     - sudo ufw delete allow 8000
@@ -46,7 +48,7 @@
     - sudo service gunicorn restart
     - sudo service nginx restart
 
-7. to check logs
+9. to check logs
 
     - sudo tail -f /var/log/nginx/error.log
     - sudo systemctl status nginx
